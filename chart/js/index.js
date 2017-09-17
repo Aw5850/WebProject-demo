@@ -1,26 +1,46 @@
-//基于准备好的dom，初始化echarts实例
+// 基于准备好的dom，初始化echarts实例
 var chart_one = echarts.init(document.getElementById('chart-one'));
+// 指定图表的配置项和数据
 var option = {
     //标题组件
     title: {
-        text: '班级人数'
+        show:true,//默认为true
+        text: '统计班级人数',
+        subtext:'计算机应用技术专业',
+        left:"left"//默认是居左，可以是数字
     },
     //图例组件，可点击图例控制哪些系列不显示
-    tooltip: {},
+    tooltip: {
+    },
+    // 工具箱
+    toolbox: {
+        show: true,
+        feature: {
+            saveAsImage: {//保存为图片
+                show: true
+            }
+        }
+    },
     legend: {
         data: ['人数']
     },
-    //直角坐标系 grid 中的 x 轴
+    // x 轴
     xAxis: {
         data: ["1班", "2班", "3班", "4班", "5班", "6班"]
     },
-    //直角坐标系 grid 中的 y 轴
+    // y 轴
     yAxis: {},
     // type是bar  柱状图
-    series: [{ name: '人数', type: 'bar', data: [5, 20, 36, 10, 10, 20] }]
+    series: [{ 
+        name: '人数', 
+        type: 'bar', 
+        data: [5, 20, 36, 10, 10, 20] 
+    }]
 };
-// 显示图表
+// 使用刚指定的配置项和数据显示图表。
 // 通过 setOption 方法生成一个简单的柱状图
+
+// 折线图
 chart_one.setOption(option);
 
 var chart_two = echarts.init(document.getElementById('chart-two'));
@@ -29,6 +49,14 @@ var option2 = {
         text: "数据统计"
     },
     tooltip: {},
+    toolbox: {
+        show: true,
+        feature: {
+            saveAsImage: {//保存为图片
+                show: true
+            }
+        }
+    },
     legend: {
         data: ['访问量']
     },
@@ -39,7 +67,7 @@ var option2 = {
     //name=legend.data的时候才能显示图例
     series: [{
         name: '访问量',
-        type: 'line',
+        type: 'line',  //type为line是折线图
         data: [100, 200, 500, 360]
     }]
 }
