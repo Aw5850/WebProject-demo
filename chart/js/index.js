@@ -11,13 +11,26 @@ var option = {
     },
     //图例组件，可点击图例控制哪些系列不显示
     tooltip: {
+        trigger:'axis'//tooltip触发方式:axis以X轴线触发,item以每一个数据项触发
     },
     // 工具箱
     toolbox: {
         show: true,
         feature: {
+            dataView:{
+                show:true
+            },
+            restore:{
+                show:true
+            },
             saveAsImage: {//保存为图片
                 show: true
+            },
+            dataZoom:{
+                show:true
+            },
+            magicType:{
+                type:['line','bar']
             }
         }
     },
